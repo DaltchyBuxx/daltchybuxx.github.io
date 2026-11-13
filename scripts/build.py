@@ -7,7 +7,7 @@ import re
 
 ROOT = Path(__file__).resolve().parents[1]
 DISCORD = 'https://discord.gg/5mzW2VyNDD'
-BASE = '/daltchybuxx-web'
+BASE = ''
 DATE = '13/11/2026'
 VERSION = '2.0.0'
 TOKEN = re.compile(r'(\*\*.+?\*\*|\[[^\]]+\]\(https?://[^)]+\))')

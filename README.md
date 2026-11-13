@@ -4,9 +4,9 @@ Páginas públicas de Termos de Uso e Política de Privacidade da loja. Versão 
 
 ## Endereços no GitHub Pages
 
-- Início: https://daltchybuxx.github.io/daltchybuxx-web/
-- Termos: https://daltchybuxx.github.io/daltchybuxx-web/termos/
-- Privacidade: https://daltchybuxx.github.io/daltchybuxx-web/privacidade/
+- Início: https://daltchybuxx.github.io/
+- Termos: https://daltchybuxx.github.io/termos/
+- Privacidade: https://daltchybuxx.github.io/privacidade/
 
 ## Ativar a publicação
 
@@ -33,3 +33,7 @@ python3 -m http.server 8000
 ## Contato
 
 https://discord.gg/5mzW2VyNDD — acesse o canal de suporte para iniciar um atendimento.
+
+## Nome do repositório
+
+Para servir na raiz do domínio, use o nome `daltchybuxx.github.io` na organização `DaltchyBuxx`. O gerador usa `BASE = ''`; os links canônicos apontam para a raiz. Preserve Pages em `main` / `/(root)`.
