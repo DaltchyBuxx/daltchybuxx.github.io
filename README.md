@@ -37,3 +37,7 @@ https://discord.gg/5mzW2VyNDD — acesse o canal de suporte para iniciar um aten
 ## Nome do repositório
 
 Para servir na raiz do domínio, use o nome `daltchybuxx.github.io` na organização `DaltchyBuxx`. O gerador usa `BASE = ''`; os links canônicos apontam para a raiz. Preserve Pages em `main` / `/(root)`.
+
+## PDF para download
+
+As páginas oferecem `documentos/termos.pdf`. Ao alterar os termos, gere novamente o HTML com `python3 scripts/build.py` e o PDF com `python3 scripts/build_pdf.py` (requer LibreOffice instalado). Envie ambos os resultados no mesmo commit. O Markdown continua sendo a fonte do conteúdo.

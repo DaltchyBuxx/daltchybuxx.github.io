@@ -117,7 +117,7 @@ def document(title, kind, source, intro):
     </div>
     <div class="document-grid"><aside class="toc"><details open><summary>Neste documento</summary><nav aria-label="Índice do documento"><ol>{toc}</ol></nav></details></aside>
       <article class="document-body" aria-label="{title}">{content}
-        <div class="document-end"><a href="#conteudo">Voltar ao início ↑</a><a href="../documentos/termos.md">Baixar texto completo (.md)</a></div>
+        <div class="document-end"><a href="#conteudo">Voltar ao início ↑</a><a href="../documentos/termos.pdf" download>Baixar termos completos (.pdf)</a></div>
       </article>
     </div>
   </main>'''
