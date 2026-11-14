@@ -90,7 +90,8 @@ def page(title, active, body, *, description, canonical_path=''):
   <meta name="theme-color" content="#a50810">
   <title>{escape(title)} · DaltchyBuxx</title>
   <link rel="icon" href="{asset}favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="{asset}style.css?v=3">
+  <script src="{asset}theme.js?v=1"></script>
+  <link rel="stylesheet" href="{asset}style.css?v=4">
   <link rel="canonical" href="https://daltchybuxx.github.io{BASE}/{canonical_path}">
 </head>
 <body>
@@ -98,6 +99,7 @@ def page(title, active, body, *, description, canonical_path=''):
   <header class="site-header"><div class="header-inner">
     <a class="brand" href="{home}" aria-label="DaltchyBuxx — início"><img src="{asset}favicon.svg" alt="" width="44" height="44"><span>DALTCHY<strong>BUXX</strong><small>DOCUMENTOS DA LOJA</small></span></a>
     <nav aria-label="Navegação principal">{links}<a class="support-link" href="{DISCORD}">Suporte <span aria-hidden="true">↗</span></a></nav>
+    <label class="theme-picker" for="theme-select">Tema <select id="theme-select"><option value="system">Sistema</option><option value="light">Claro</option><option value="dark">Escuro</option></select></label>
   </div></header>
   {body}
   <footer class="site-footer"><div class="footer-inner"><p><strong>DaltchyBuxx</strong> · Termos e privacidade</p>
