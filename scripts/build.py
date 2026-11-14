@@ -87,10 +87,10 @@ def page(title, active, body, *, description, canonical_path=''):
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="{escape(description, quote=True)}">
-  <meta name="theme-color" content="#d50916">
+  <meta name="theme-color" content="#a50810">
   <title>{escape(title)} · DaltchyBuxx</title>
   <link rel="icon" href="{asset}favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="{asset}style.css?v=5">
+  <link rel="stylesheet" href="{asset}style.css?v=6">
   <link rel="canonical" href="https://daltchybuxx.github.io{BASE}/{canonical_path}">
 </head>
 <body>
