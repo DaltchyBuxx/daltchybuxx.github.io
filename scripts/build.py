@@ -90,7 +90,7 @@ def page(title, active, body, *, description, canonical_path=''):
   <meta name="theme-color" content="#a50810">
   <title>{escape(title)} · DaltchyBuxx</title>
   <link rel="icon" href="{asset}favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="{asset}style.css?v=6">
+  <link rel="stylesheet" href="{asset}style.css?v=7">
   <link rel="canonical" href="https://daltchybuxx.github.io{BASE}/{canonical_path}">
 </head>
 <body>
@@ -100,8 +100,11 @@ def page(title, active, body, *, description, canonical_path=''):
     <nav aria-label="Navegação principal">{links}<a class="support-link" href="{DISCORD}">Suporte <span aria-hidden="true">↗</span></a></nav>
   </div></header>
   {body}
-  <footer class="site-footer"><div class="footer-inner"><p><strong>DaltchyBuxx</strong> · Termos e privacidade</p>
-    <p>Para atendimento, entre no <a href="{DISCORD}">Discord oficial</a> e acesse o canal de suporte.</p>
+  <footer class="site-footer"><div class="footer-inner">
+    <div class="footer-brand"><strong>DALTCHYBUXX <span>LOJA OFICIAL</span></strong><p>Robux, Gamepasses e atendimento pelo Discord.<br>Consulte as informações da loja antes de comprar.</p></div>
+    <div><h2>Comunidade</h2><p>Novidades e atendimento no servidor oficial.</p><a href="{DISCORD}">Canal oficial no Discord ↗</a></div>
+    <nav aria-label="Navegação do rodapé"><h2>Navegação</h2><a href="{home}">Página inicial</a><a href="{home}termos/">Termos de Uso</a><a href="{home}privacidade/">Política de Privacidade</a></nav>
+    <p class="footer-bottom">DaltchyBuxx · Termos e privacidade <span>Versão {VERSION} · Vigência: {DATE}</span></p>
   </div></footer>
 </body>
 </html>
@@ -135,24 +138,24 @@ def build():
     document('Política de Privacidade', 'privacy', privacy,
              'Saiba quais dados dos clientes são utilizados, como são conservados e como solicitar sua exclusão.')
     home = f'''<main id="conteudo" class="home-shell">
-    <section class="home-intro">
-      <div class="hero-copy"><p class="eyebrow"><span class="status-dot"></span> CENTRAL DE INFORMAÇÕES</p>
-      <h1>Mais clareza.<br><span>Mais confiança.</span></h1>
-      <p>Tudo o que você precisa saber sobre suas compras e seus dados na DaltchyBuxx.</p>
-      <div class="hero-actions"><a class="primary-button" href="./termos/">Conhecer os termos <span aria-hidden="true">↗</span></a><a class="text-button" href="./privacidade/">Sua privacidade <span aria-hidden="true">→</span></a></div>
-      <p class="hero-note">Termos de uso · Privacidade · Atendimento</p></div>
-      <div class="hero-art"><div class="logo-frame"><img src="./assets/favicon.svg" alt="Logo DaltchyBuxx" width="280" height="280"></div><span class="art-caption">DALTCHYBUXX <span>NO DISCORD</span></span></div>
-    </section>
-    <section class="documents-section" aria-labelledby="documents-title">
-      <div class="section-heading"><div><p class="eyebrow">INFORMAÇÃO AO SEU ALCANCE</p><h2 id="documents-title">Antes da sua próxima compra.</h2></div><p>Escolha o documento que deseja consultar.</p></div>
-      <div class="document-cards">
-      <a class="document-card" href="./termos/"><div class="card-top"><span class="card-icon" aria-hidden="true">≡</span><span class="card-number">01 / COMPRAS</span><span class="card-arrow" aria-hidden="true">↗</span></div><h3>Termos de Uso</h3><p>Entenda as condições de compra, entrega, prazos, cancelamentos e atendimento.</p><span class="card-link">Explorar os termos <span aria-hidden="true">→</span></span></a>
-      <a class="document-card" href="./privacidade/"><div class="card-top"><span class="card-icon" aria-hidden="true">◇</span><span class="card-number">02 / SEUS DADOS</span><span class="card-arrow" aria-hidden="true">↗</span></div><h3>Política de Privacidade</h3><p>Saiba como seus dados são utilizados, conservados e como solicitar a exclusão.</p><span class="card-link">Entender a privacidade <span aria-hidden="true">→</span></span></a>
-      </div>
-    </section>
-    <section class="contact-block"><div><p class="eyebrow">PODEMOS AJUDAR?</p><h2>A conversa continua no Discord.</h2><p>Entre no servidor oficial e acesse o canal de suporte para falar com a equipe.</p></div><a class="contact-button" href="{DISCORD}">Acessar o suporte <span aria-hidden="true">↗</span></a></section>
-    <p class="home-meta">DOCUMENTOS DA LOJA <span>Versão {VERSION} · Vigência a partir de {DATE}</span></p>
-  </main>'''
+  <section class="home-intro" aria-labelledby="home-title">
+    <p class="hero-badge"><span aria-hidden="true">●</span> EXPERIÊNCIA DALTCHYBUXX</p>
+    <h1 id="home-title">Mais clareza.<br><span>Mais confiança.</span></h1>
+    <p class="hero-description">Tudo o que você precisa saber sobre suas compras,<br class="desktop-break"> seus dados e o atendimento na DaltchyBuxx.</p>
+    <div class="hero-actions"><a class="primary-button" href="#documentos">Explorar os documentos <span aria-hidden="true">↓</span></a><a class="text-button" href="{DISCORD}">Conhecer a comunidade <span aria-hidden="true">↗</span></a></div>
+    <div class="hero-bottom"><span>Robux e Gamepasses · Atendimento pelo Discord</span><a href="{DISCORD}" class="community-pill"><span aria-hidden="true">●</span> COMUNIDADE NO DISCORD</a></div>
+  </section>
+  <section class="documents-section" id="documentos" aria-labelledby="documents-title"><div class="section-inner">
+    <div class="section-heading"><div><p class="eyebrow">TUDO EXPLICADO</p><h2 id="documents-title">Antes da sua próxima compra.</h2><p>Consulte as condições da loja e saiba como seus dados são utilizados.</p></div><span class="updated">Versão {VERSION} · {DATE}</span></div>
+    <div class="document-cards">
+      <a class="document-card terms-card" href="./termos/"><div class="card-top"><span class="card-number">01 / COMO FUNCIONA</span><span class="card-arrow" aria-hidden="true">↗</span></div><h3>Regras e Entregas</h3><p>Entenda como funcionam os pedidos de Robux e Gamepasses, os prazos e as condições antes e depois de comprar.</p><ul class="card-points"><li>Condições de compra e entrega</li><li>Cancelamentos e atendimento</li><li>Direitos e responsabilidades</li></ul><span class="card-bottom"><span class="card-link">Ler os Termos de Uso <span aria-hidden="true">→</span></span><span class="card-format">Documento completo</span></span></a>
+      <a class="document-card privacy-card" href="./privacidade/"><div class="card-top"><span class="card-number">02 / SEUS DADOS</span><span class="card-arrow" aria-hidden="true">↗</span></div><h3>Privacidade e Dados</h3><p>Conheça as informações utilizadas no atendimento, as finalidades do tratamento e os procedimentos para solicitar exclusão.</p><ul class="card-points"><li>Dados utilizados e suas finalidades</li><li>Conservação das informações</li><li>Solicitações e direitos dos clientes</li></ul><span class="card-bottom"><span class="card-link">Ler a Política de Privacidade <span aria-hidden="true">→</span></span><span class="card-format">Documento completo</span></span></a>
+    </div>
+  </div></section>
+  <section class="resource-section" aria-label="Acesso às informações"><div class="resource-card"><span class="eyebrow">PARA CONSULTAR</span><h2>Em um só lugar.</h2><p>Termos e privacidade organizados por assunto, com índice para facilitar a leitura.</p></div><a class="resource-card" href="./documentos/termos.pdf" download><span class="eyebrow">PARA GUARDAR</span><h2>Também em PDF. <span aria-hidden="true">↓</span></h2><p>Baixe os termos completos para consultar quando precisar.</p></a><div class="resource-card"><span class="eyebrow">PARA CONVERSAR</span><h2>Suporte no Discord.</h2><p>Entre no servidor oficial e acesse o canal de suporte para falar com a equipe.</p></div></section>
+  <section class="contact-block"><div><p class="eyebrow">COMUNIDADE OFICIAL</p><h2>Faça parte da nossa<br class="desktop-break"> comunidade.</h2><p>Acompanhe as novidades, tire suas dúvidas e encontre o atendimento da DaltchyBuxx no nosso servidor.</p></div><a class="contact-button" href="{DISCORD}">Entrar no Discord <span aria-hidden="true">↗</span></a></section>
+</main>
+'''
     (ROOT / 'index.html').write_text(page('Termos e privacidade', 'home', home,
         description='Termos de Uso e Política de Privacidade da DaltchyBuxx. Consulte condições de compra e informações sobre seus dados.'))
     (ROOT / '.nojekyll').write_text('')
