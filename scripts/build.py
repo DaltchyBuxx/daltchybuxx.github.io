@@ -127,16 +127,12 @@ def page(title, active, body, *, description, canonical_path=''):
 
 def document(title, kind, source, intro):
     content, toc = render_markdown(source, privacy=kind == 'privacy')
-    terms_path = './' if kind == 'terms' else '../termos/'
-    shortcuts = ''.join(f'<a href="{terms_path}#{anchor}">{label}</a>' for anchor, label in [
-        ('secao-4', 'Entrega'), ('secao-8', 'Reembolso'),
-        ('secao-12', 'Excluir dados'), ('secao-11-11', 'Transferir conta')])
     article = f'''<main id="conteudo" class="document-shell">
     <div class="document-heading"><p class="eyebrow">DOCUMENTOS DA LOJA</p><h1>{title}</h1>
       <p class="intro">{intro}</p>
       <dl class="document-meta"><div><dt>Versão</dt><dd>{VERSION}</dd></div><div><dt>Última atualização</dt><dd>{DATE}</dd></div><div><dt>Vigência</dt><dd>{EFFECTIVE_DATE}</dd></div></dl>
     </div>
-    <div class="document-grid"><aside class="toc"><details class="toc-disclosure" open><summary>Navegar pelo documento</summary><nav class="quick-links" aria-label="Acesso rápido">{shortcuts}</nav><nav class="toc-list" aria-label="Índice do documento"><ol>{toc}</ol></nav></details></aside>
+    <div class="document-grid"><aside class="toc"><details class="toc-disclosure" open><summary>Navegar pelo documento</summary><nav class="toc-list" aria-label="Índice do documento"><ol>{toc}</ol></nav></details></aside>
       <article class="document-body" aria-label="{title}">{content}
         <div class="document-end"><a href="#conteudo">Voltar ao início ↑</a><a href="../documentos/termos.pdf" download>Baixar termos completos (.pdf)</a></div>
       </article>
