@@ -5,12 +5,11 @@ from html import escape
 import subprocess
 import tempfile
 
-from build import ROOT, DATE, EFFECTIVE_DATE, VERSION, render_markdown
+from build import ROOT, DATE, EFFECTIVE_DATE, VERSION, render_markdown, full_terms
 
 
 def build_pdf():
-    source = (ROOT / 'documentos/termos.md').read_text()
-    content, _ = render_markdown(source[source.index('## 1. '):])
+    content, _ = render_markdown(full_terms())
     with tempfile.TemporaryDirectory(prefix='daltchy-pdf-') as directory:
         temp = Path(directory)
         html = temp / 'termos.html'

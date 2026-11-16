@@ -4,13 +4,9 @@
 from html import escape
 from pathlib import Path
 import re
+from settings import ROOT, DISCORD, DATE, EFFECTIVE_DATE, VERSION, full_terms, privacy_text
 
-ROOT = Path(__file__).resolve().parents[1]
-DISCORD = 'https://discord.gg/5mzW2VyNDD'
 BASE = ''
-DATE = '16/11/2026'
-EFFECTIVE_DATE = '23/11/2026'
-VERSION = '2.1.0'
 TOKEN = re.compile(r'(\*\*.+?\*\*|\[[^\]]+\]\(https?://[^)]+\))')
 
 
@@ -144,9 +140,9 @@ def document(title, kind, source, intro):
 
 
 def build():
-    source = (ROOT / 'documentos/termos.md').read_text()
-    terms = source[source.index('## 1. '):]
-    privacy = source[source.index('### 11.1.'):source.index('## 13. ')]
+    terms = full_terms()
+    privacy_source = privacy_text()
+    privacy = privacy_source[privacy_source.index('### 11.1.'):]
     document('Termos de Uso e Condições Gerais', 'terms', terms,
              'Conheça as condições de compra, entrega, atendimento e uso dos serviços da DaltchyBuxx.')
     document('Política de Privacidade', 'privacy', privacy,
