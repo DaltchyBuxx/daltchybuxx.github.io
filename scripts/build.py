@@ -66,10 +66,22 @@ def render_markdown(source, *, privacy=False):
             blocks.append('<li>' + inline(line[2:]) + '</li>')
         else:
             paragraphs.append(line)
-    toc = ''.join(
-        f'<li class="toc-level-{level}"><a href="#{anchor}">{escape(label)}</a></li>'
-        for anchor, label, level in entries
-    )
+    toc_parts = []
+    index = 0
+    while index < len(entries):
+        anchor, label, level = entries[index]
+        children = []
+        index += 1
+        while index < len(entries) and entries[index][2] > level:
+            child_anchor, child_label, _ = entries[index]
+            children.append(f'<li><a href="#{child_anchor}">{escape(child_label)}</a></li>')
+            index += 1
+        link = f'<a href="#{anchor}">{escape(label)}</a>'
+        if children:
+            toc_parts.append('<li class="toc-group">' + link + '<details><summary>Ver subseções de privacidade</summary><ol>' + ''.join(children) + '</ol></details></li>')
+        else:
+            toc_parts.append(f'<li>{link}</li>')
+    toc = ''.join(toc_parts)
     return '\n'.join(blocks), toc
 
 
@@ -91,7 +103,8 @@ def page(title, active, body, *, description, canonical_path=''):
   <meta name="theme-color" content="#a50810">
   <title>{escape(title)} · DaltchyBuxx</title>
   <link rel="icon" href="{asset}favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="{asset}style.css?v=7">
+  <link rel="stylesheet" href="{asset}style.css?v=8">
+  <script src="{asset}document-nav.js?v=1" defer></script>
   <link rel="canonical" href="https://daltchybuxx.github.io{BASE}/{canonical_path}">
 </head>
 <body>
@@ -114,12 +127,16 @@ def page(title, active, body, *, description, canonical_path=''):
 
 def document(title, kind, source, intro):
     content, toc = render_markdown(source, privacy=kind == 'privacy')
+    terms_path = './' if kind == 'terms' else '../termos/'
+    shortcuts = ''.join(f'<a href="{terms_path}#{anchor}">{label}</a>' for anchor, label in [
+        ('secao-4', 'Entrega'), ('secao-8', 'Reembolso'),
+        ('secao-12', 'Excluir dados'), ('secao-11-11', 'Transferir conta')])
     article = f'''<main id="conteudo" class="document-shell">
     <div class="document-heading"><p class="eyebrow">DOCUMENTOS DA LOJA</p><h1>{title}</h1>
       <p class="intro">{intro}</p>
       <dl class="document-meta"><div><dt>Versão</dt><dd>{VERSION}</dd></div><div><dt>Última atualização</dt><dd>{DATE}</dd></div><div><dt>Vigência</dt><dd>{EFFECTIVE_DATE}</dd></div></dl>
     </div>
-    <div class="document-grid"><aside class="toc"><details open><summary>Neste documento</summary><nav aria-label="Índice do documento"><ol>{toc}</ol></nav></details></aside>
+    <div class="document-grid"><aside class="toc"><details class="toc-disclosure" open><summary>Navegar pelo documento</summary><nav class="quick-links" aria-label="Acesso rápido">{shortcuts}</nav><nav class="toc-list" aria-label="Índice do documento"><ol>{toc}</ol></nav></details></aside>
       <article class="document-body" aria-label="{title}">{content}
         <div class="document-end"><a href="#conteudo">Voltar ao início ↑</a><a href="../documentos/termos.pdf" download>Baixar termos completos (.pdf)</a></div>
       </article>
