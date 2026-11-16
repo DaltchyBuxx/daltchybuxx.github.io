@@ -8,8 +8,9 @@ import re
 ROOT = Path(__file__).resolve().parents[1]
 DISCORD = 'https://discord.gg/5mzW2VyNDD'
 BASE = ''
-DATE = '13/11/2026'
-VERSION = '2.0.0'
+DATE = '16/11/2026'
+EFFECTIVE_DATE = '23/11/2026'
+VERSION = '2.1.0'
 TOKEN = re.compile(r'(\*\*.+?\*\*|\[[^\]]+\]\(https?://[^)]+\))')
 
 
@@ -104,7 +105,7 @@ def page(title, active, body, *, description, canonical_path=''):
     <div class="footer-brand"><strong>DALTCHYBUXX <span>LOJA OFICIAL</span></strong><p>Robux, Gamepasses e atendimento pelo Discord.<br>Consulte as informações da loja antes de comprar.</p></div>
     <div><h2>Comunidade</h2><p>Novidades e atendimento no servidor oficial.</p><a href="{DISCORD}">Canal oficial no Discord ↗</a></div>
     <nav aria-label="Navegação do rodapé"><h2>Navegação</h2><a href="{home}">Página inicial</a><a href="{home}termos/">Termos de Uso</a><a href="{home}privacidade/">Política de Privacidade</a></nav>
-    <p class="footer-bottom">DaltchyBuxx · Termos e privacidade <span>Versão {VERSION} · Vigência: {DATE}</span></p>
+    <p class="footer-bottom">DaltchyBuxx · Termos e privacidade <span>Versão {VERSION} · Vigência: {EFFECTIVE_DATE}</span></p>
   </div></footer>
 </body>
 </html>
@@ -116,7 +117,7 @@ def document(title, kind, source, intro):
     article = f'''<main id="conteudo" class="document-shell">
     <div class="document-heading"><p class="eyebrow">DOCUMENTOS DA LOJA</p><h1>{title}</h1>
       <p class="intro">{intro}</p>
-      <dl class="document-meta"><div><dt>Versão</dt><dd>{VERSION}</dd></div><div><dt>Última atualização</dt><dd>{DATE}</dd></div><div><dt>Vigência</dt><dd>{DATE}</dd></div></dl>
+      <dl class="document-meta"><div><dt>Versão</dt><dd>{VERSION}</dd></div><div><dt>Última atualização</dt><dd>{DATE}</dd></div><div><dt>Vigência</dt><dd>{EFFECTIVE_DATE}</dd></div></dl>
     </div>
     <div class="document-grid"><aside class="toc"><details open><summary>Neste documento</summary><nav aria-label="Índice do documento"><ol>{toc}</ol></nav></details></aside>
       <article class="document-body" aria-label="{title}">{content}

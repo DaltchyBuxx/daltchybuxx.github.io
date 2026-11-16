@@ -2,9 +2,9 @@
 
 # Termos de Uso e Condições Gerais
 
-**Versão 2.0.0**  
-**Última atualização:** 13/11/2026  
-**Vigência:** 13/11/2026
+**Versão 2.1.0**  
+**Última atualização:** 16/11/2026  
+**Vigência:** 23/11/2026
 
 ## 1. Introdução e aceitação
 
@@ -124,6 +124,16 @@ A análise deve abranger os registros dos pedidos e as cópias de conversas e me
 ### 11.10. Mensagens não utilizadas em inteligência artificial
 
 O bot da DaltchyBuxx não envia as conversas dos clientes a ferramentas de inteligência artificial, nem utiliza essas mensagens para treinar modelos de IA. Essa ausência de uso para treinamento está alinhada à [Política de Desenvolvedores do Discord](https://support-dev.discord.com/hc/en-us/articles/8563934450327-Discord-Developer-Policy), que proíbe utilizar conteúdo de mensagens obtido pelas APIs para treinar modelos de aprendizado de máquina ou inteligência artificial sem autorização expressa do Discord.
+
+### 11.11. Transferência de conta
+
+Para solicitar a transferência dos seus registros para outra conta do Discord, acesse a conta antiga e abra um ticket de suporte, informando o ID da nova conta.
+
+Se você não tiver mais acesso à conta antiga, abra o ticket pela nova conta e informe os IDs de ambas. Nesse caso, serão necessárias verificações adicionais para comprovar que a conta antiga pertence a você. A solicitação estará sujeita à aprovação após essas verificações.
+
+Após a aprovação, os registros de compras e os benefícios vinculados à conta antiga serão transferidos para a nova conta. Se a conta de destino já possuir registros, eles poderão ser mesclados. Concluída a transferência, o cadastro da conta antiga será excluído do banco de dados.
+
+**A transferência é irreversível: após sua conclusão, não será possível desfazer a operação e restaurar os cadastros ao estado anterior.**
 
 ## 12. Solicitação de exclusão de dados
 
